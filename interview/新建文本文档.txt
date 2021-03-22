@@ -1,0 +1,31 @@
+1. go channel close 
+	https://www.zhihu.com/search?type=content&q=go%20channel%20close%20
+	
+	
+2.linux grep 命令查找日志相关文件
+tail -500 catalina.out| grep -H -n -B 1 "GenericJDBCException"[/color]	
+    https://blog.csdn.net/liupeifeng3514/article/details/79880878	
+	
+3. b+树结构 and  为什么	
+	在计算机中，磁盘存储数据最小单元是扇区，一个扇区的大小是512字节，而文件系统（例如XFS/EXT4）的最小单元是块，一个块的大小是4k，而对于InnoDB存储引擎也有自己的最小储存单元，页（Page），一个页的大小是16K。
+	表中的数据都是存储在页中的，所以一个页中能存储多少行数据呢？
+	
+	InnoDB存储引擎的最小存储单元是页，页可以用于存放数据也可以用于存放键值+指针，在B+树中叶子节点存放数据，非叶子节点存放键值+指针。
+    索引组织表通过非叶子节点的二分查找法以及指针确定数据在哪个页中，进而在去数据页中查找到需要的数据；
+	
+	https://www.zhihu.com/search?type=content&q=b%2B%E6%A0%91%E7%BB%93%E6%9E%84%20and%20%20%E4%B8%BA%E4%BB%80%E4%B9%88
+	
+	
+	由于B+树内部节点不需要存储data pointer，所以B+树单一节点存储的元素更多，使得查询的IO次数更少所有的查询都需要查找到叶节点，查询性能是稳定的，而B树每个节点都可能查询到数据，所以不稳定。所有的叶子节点形成了一个有序链表，能更好地支持范围查询。
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
