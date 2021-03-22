@@ -1,0 +1,91 @@
+package main
+
+import (
+	"fmt"
+	"io/ioutil"
+	"./address"
+	"github.com/golang/protobuf/proto"
+)
+
+func writeProto(filename string) (err error) {
+	var contactBook address.ContactBook
+	for i := 0; i < 64; i++ {
+		p := &address.Person{
+			Id:   int32(i),
+			Name: fmt.Sprintf("陈%d", i),
+		}
+
+		phone := &address.Phone{
+			Type:   address.PhoneType_HOME,
+			Number: "15910624165",
+		}
+
+		p.Phones = append(p.Phones, phone)
+		contactBook.Persons = append(contactBook.Persons, p)
+	}
+
+	data, err := proto.Marshal(&contactBook)
+	if err != nil {
+		fmt.Printf("marshal proto buf failed, err:%v\n", err)
+		return
+	}
+
+	err = ioutil.WriteFile(filename, data, 0755)
+	if err != nil {
+		fmt.Printf("write file failed, err:%v\n", err)
+		return
+	}
+	return
+}
+
+func readProto(filename string) (err error) {
+	var contactBook address.ContactBook
+	data, err := ioutil.ReadFile(filename)
+	if err != nil {
+		return
+	}
+	err = proto.Unmarshal(data, &contactBook)
+	if err != nil {
+		return
+	}
+	for i:=range contactBook.Persons{
+		fmt.Printf("proto:%#v\n", i)
+	}
+
+	fmt.Printf("proto:%#v\n", contactBook)
+	return
+}
+
+func main() {
+	filename := "D:/tmp/contactbook.dat"
+	err := writeProto(filename)
+	if err != nil {
+		fmt.Printf("write proto failed, err:%v\n", err)
+		return
+	}
+	err = readProto(filename)
+	if err != nil {
+		fmt.Printf("read proto failed, err:%v\n", err)
+		return
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
