@@ -18,6 +18,22 @@ tail -500 catalina.out| grep -H -n -B 1 "GenericJDBCException"[/color]
 	
 	由于B+树内部节点不需要存储data pointer，所以B+树单一节点存储的元素更多，使得查询的IO次数更少所有的查询都需要查找到叶节点，查询性能是稳定的，而B树每个节点都可能查询到数据，所以不稳定。所有的叶子节点形成了一个有序链表，能更好地支持范围查询。
 
+
+3 .slice和array
+	go语言的数组是一个值，Go 语言中的数组是值类型
+	但他们之间还有着千次万缕的联系 slice 是引用类型、是 array 的引用，相当于动态数组， 这些都是 slice 的特性
+	https://www.zhihu.com/search?type=content&q=go%20slice%E5%92%8Carry%E5%8C%BA%E5%88%AB
+
+
+4.golang中,new和make区别
+
+在golang中,make和new都是分配内存的，但是它们之间还是有些区别的，只有理解了它们之间的不同，才能在合适的场合使用。
+
+简单来说,new只是分配内存，不初始化内存； 而make即分配又初始化内存。所谓的初始化就是给类型赋初值，比如字符为空，整型为0, 逻辑值为false等。
+make 仅用来分配及初始化类型为 slice、map、chan 的数据。new 可分配任意类型的数据. new 分配返回的是指针，即类型 *Type。make 返回引用，即 Type. new 分配的空间被清零, make 分配空间后，会进行初始化.
+
+
+
 	
 	
 	
