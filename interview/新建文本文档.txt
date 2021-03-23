@@ -33,10 +33,25 @@ tail -500 catalina.out| grep -H -n -B 1 "GenericJDBCException"[/color]
 make 仅用来分配及初始化类型为 slice、map、chan 的数据。new 可分配任意类型的数据. new 分配返回的是指针，即类型 *Type。make 返回引用，即 Type. new 分配的空间被清零, make 分配空间后，会进行初始化.
 
 
+5.IO多路复用 epoll和select区别
+	https://www.zhihu.com/search?type=content&q=IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%20epoll%E5%92%8Cselect%E5%8C%BA%E5%88%AB
+	
+1、什么是IO多路复用「定义」IO多路复用是一种同步IO模型，
+实现一个线程可以监视多个文件句柄；一旦某个文件句柄就绪，就能够通知应用程序进行相应的读写操作；没有文件句柄就绪时会阻塞应用程序，交出cpu。
+多路是指网络连接，复用指的是同一个线程
 
-	
-	
-	
+6.进程通信方法
+管道
+消息队列
+共享内存
+信号量
+信号
+套接字
+
+7.tcp保证可靠
+02 保证数据安全的方法
+https://www.zhihu.com/search?type=content&q=tcp%E4%BF%9D%E8%AF%81%E5%8F%AF%E9%9D%A0
+TCP主要提供了检验和、序列号/确认应答、超时重传、最大消息长度、滑动窗口控制等方法实现了可靠性传输。
 	
 	
 	
