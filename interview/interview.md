@@ -1,4 +1,5 @@
 1. go channel close 
+
 	https://www.zhihu.com/search?type=content&q=go%20channel%20close%20
 	
 	
@@ -34,6 +35,7 @@ make 仅用来分配及初始化类型为 slice、map、chan 的数据。new 可
 
 
 5.IO多路复用 epoll和select区别
+	
 	https://www.zhihu.com/search?type=content&q=IO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8%20epoll%E5%92%8Cselect%E5%8C%BA%E5%88%AB
 	
 1、什么是IO多路复用「定义」IO多路复用是一种同步IO模型，
@@ -50,11 +52,38 @@ make 仅用来分配及初始化类型为 slice、map、chan 的数据。new 可
 
 7.tcp保证可靠
 02 保证数据安全的方法
+
 https://www.zhihu.com/search?type=content&q=tcp%E4%BF%9D%E8%AF%81%E5%8F%AF%E9%9D%A0
+
 TCP主要提供了检验和、序列号/确认应答、超时重传、最大消息长度、滑动窗口控制等方法实现了可靠性传输。
 	
+
+8.数据库优化
+
+https://www.zhihu.com/search?type=content&q=%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BC%98%E5%8C%96	
 	
 	
+Linux命令——ps、grep以及ps、lsof和netstat的区别
+
+
+ps（Process status）显示当前进程状态
+ps -u root //显示root进程用户信息
+ps -ef 可列出所有的进程
+
+区别：
+ps ：（process）查看有终端控制的所有进程
+ps -ef | grep word 查看包含关键字word的所有外部进程（包括其他用户）
+ps -ax 使用 -a 参数。-a 代表 all。同时加上x参数会显示没有控制终端的进程
+netstat：用于显示各种网络相关信息，如网络连接，路由表，接口状态
+losf：（列出打开文件lists openfiles）能看到pid和用户(有权限控制，只能看到本用户)，可以找到哪个进程占用了这个端口
+
+grep
+1、查找文件里符合条件的字符串
+2、以递归的方式查找符合条件的文件
+grep -r update usr/bin：查找指令目录（usr/bin）及其子目录下，文件中包含字符串“update”的文件，并打印出该字符串所在的行
+3、反向查找，通过-v可以查找出不符合条件的行
+grep -v test test：查找文件名中包含 test 的文件中不包含test 的行
+ 
 	
 	
 	
