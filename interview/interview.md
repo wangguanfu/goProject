@@ -86,6 +86,8 @@ grep -v test test：查找文件名中包含 test 的文件中不包含test 的�
  
 	
 	
-	
+9.数据库优化
+	redis ACID
+	redis  不支持回滚 不能保证持久性  其他都可以
 	
 	
