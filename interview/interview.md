@@ -119,6 +119,10 @@ grep -v test test：查找文件名中包含 test 的文件中不包含test 的�
 
 
 
+10. Nginx负载均衡  nginx的upstream目前支持的5种方式的分配
+	
+	https://blog.csdn.net/qq_35119422/article/details/81505732
+
 
 
 
