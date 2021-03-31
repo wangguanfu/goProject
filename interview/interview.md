@@ -124,7 +124,8 @@ grep -v test test：查找文件名中包含 test 的文件中不包含test 的�
 	https://blog.csdn.net/qq_35119422/article/details/81505732
 
 
-11 .ES与MySQL概念对比
+
+11. ES与MySQL概念对比
 
 MySQL	Elasticsearch
 Table	 Index
@@ -158,10 +159,18 @@ mysql中，怎么理解schema的概念，schema是数据库的组织和结构，
 集合包括表，视图，储存过程，索引等。
 
 
-
-
-
-
+13. #SQL 如何查询关于【连续几天】的问题
+https://zhuanlan.zhihu.com/p/49285570
+SELECT user,max(count_date_on)
+from(
+(SELECT user, count(date_on) count_date_on
+from 
+(select user,date,row_number() over(partition by user order by date desc) rnk,date-(max(date)-rnk) date_on
+from TB
+GROUP BY user ) A
+group by user,date_on))B
+group by user
+having max(count_date_on)>=7
 		
 	
 	
