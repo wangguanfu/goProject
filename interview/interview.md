@@ -124,13 +124,38 @@ grep -v test test：查找文件名中包含 test 的文件中不包含test 的�
 	https://blog.csdn.net/qq_35119422/article/details/81505732
 
 
+11 .ES与MySQL概念对比
+
+MySQL	Elasticsearch
+Table	 Index
+Row	     Document
+Column	 Field
+Schema	 Mapping
+SQL	     DSL
 
 
+字段类型概述
+一级分类	二级分类	具体类型
+核心类型	字符串类型	string,text,keyword
+整数类型	integer,long,short,byte
+浮点类型	double,float,half_float,scaled_float
+逻辑类型	boolean
+日期类型	date
+范围类型	range
+二进制类型	binary
+复合类型	数组类型	array
+对象类型	object
+嵌套类型	nested
+地理类型	地理坐标类型	geo_point
+地理地图	geo_shape
+特殊类型	IP类型	ip
+范围类型	completion
+令牌计数类型	token_count
+附件类型	attachment
+抽取类型	percolator
 
-
-
-
-
+mysql中，怎么理解schema的概念，schema是数据库的组织和结构，是数据库对象的集合，
+集合包括表，视图，储存过程，索引等。
 
 
 
