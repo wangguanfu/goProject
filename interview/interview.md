@@ -171,6 +171,11 @@ GROUP BY user ) A
 group by user,date_on))B
 group by user
 having max(count_date_on)>=7
-		
+	
+
+select b.学号,b.姓名,c.课程名
+from tbScore as a inner join tbStudent as b on a.学号=b.学号
+inner join tbCourse as c on a.课程号=c.课程号
+where a.成绩<60	
 	
 	
